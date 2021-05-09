@@ -1,20 +1,20 @@
 import { MdDeleteForever } from "react-icons/md";
 
 
-const DailyMenu = () => {
+const DailyMenu = ({ id, day, meal, date }) => {
     return (
         <div className='daily-menu'>
 
             <div className="daily-menu-header">
-                <medium>Monday</medium>
+                <medium>{day}</medium>
             </div>
 
             <span>
-                Hello this is in our menu!!!
+                {meal}
             </span>
 
             <div className="daily-menu-footer">
-                <small>05/07/2021</small>
+                <small>{date}</small>
                 <MdDeleteForever className='delete-icon' size='1.3em' />
             </div>
 
