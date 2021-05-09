@@ -7,17 +7,20 @@ const App = () => {
     const [dailyMenu, setMenu] = useState([
         {
             id: nanoid(),
-            text: "This is my first dish",
+            day: "Monday",
+            meal: "Cereal",
             date: "05/1/21",
         },
         {
             id: nanoid(),
-            text: "This is my second dish",
+            day: "Tuesday",
+            meal: "Beef Stew",
             date: "05/1/21",
         },
         {
             id: nanoid(),
-            text: "This is my third dish",
+            day: "Wednesday",
+            meal: "This is my third dish",
             date: "05/1/21",
         }
     ]);
@@ -35,7 +38,6 @@ const App = () => {
 
   return (
       <div className="container">
-        <DailyMenusList dailyMenu={dailyMenu}/>
         <DailyMenusList dailyMenu={dailyMenu} handleAddDailyMenu={addDailyMenu}/>
       </div>
   );
