@@ -22,9 +22,21 @@ const App = () => {
         }
     ]);
 
+    const addDailyMenu = (text) => {
+        const date = new Date();
+        const newDailyMenu = {
+            id: nanoid(),
+            text: text,
+            date: date.toLocaleDateString()
+        };
+        const newMenus = [...dailyMenu, newDailyMenu];
+        setMenu(newMenus);
+    }
+
   return (
       <div className="container">
         <DailyMenusList dailyMenu={dailyMenu}/>
+        <DailyMenusList dailyMenu={dailyMenu} handleAddDailyMenu={addDailyMenu}/>
       </div>
   );
 };
