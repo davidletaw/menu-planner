@@ -1,5 +1,5 @@
-import {MdDeleteForever} from "react-icons/md";
-import { useState} from "react";
+import { MdDeleteForever } from "react-icons/md";
+import { useState } from "react";
 
 const AddDailyMenu = ({ handleAddDailyMenu }) => {
     const [menuItem, setMenuItem] = useState('')
@@ -9,8 +9,10 @@ const AddDailyMenu = ({ handleAddDailyMenu }) => {
     };
 
     const handleSaveClick = () => {
-        console.log('clicked');
-        handleAddDailyMenu(menuItem);
+        if (menuItem.trim().length > 0) {
+            handleAddDailyMenu(menuItem);
+            setMenuItem('');
+        }
     };
 
     return (
