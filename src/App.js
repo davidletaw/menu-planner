@@ -29,16 +29,27 @@ const App = () => {
         const date = new Date();
         const newDailyMenu = {
             id: nanoid(),
+            day: text,
             text: text,
             date: date.toLocaleDateString()
         };
-        const newMenus = [...dailyMenu, newDailyMenu];
-        setMenu(newMenus);
-    }
+        const newMenu = [...dailyMenu, newDailyMenu];
+        setMenu(newMenu);
+    };
+
+    const deleteDailyMenu = (id) => {
+       const newMenu = dailyMenu.filter((dailyMenu)=> dailyMenu.id !== id);
+       setMenu(newMenu);
+    };
 
   return (
       <div className="container">
-        <DailyMenusList dailyMenu={dailyMenu} handleAddDailyMenu={addDailyMenu}/>
+        <DailyMenusList
+            dailyMenu={dailyMenu}
+            handleAddDailyMenu={addDailyMenu}
+            handleDeleteDailyMenu={deleteDailyMenu}
+        />
+
       </div>
   );
 };
