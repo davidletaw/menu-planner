@@ -1,6 +1,7 @@
 import DailyMenusList from "./Components/DailyMenusList";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import Search from "./Components/Search";
 
 
 const App = () => {
@@ -25,6 +26,8 @@ const App = () => {
         }
     ]);
 
+    const [searchText, setSearchText] = useState('');
+
     const addDailyMenu = (text) => {
         const date = new Date();
         const newDailyMenu = {
@@ -44,6 +47,7 @@ const App = () => {
 
   return (
       <div className="container">
+          <Search handleSearchNote={setSearchText} />
         <DailyMenusList
             dailyMenu={dailyMenu}
             handleAddDailyMenu={addDailyMenu}
