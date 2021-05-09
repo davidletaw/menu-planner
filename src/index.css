@@ -41,14 +41,16 @@ textarea:focus {
 }
 
 .save {
-  background-color: lightgray;
+  color: whitesmoke;
+  background-color: darkblue;
   border-radius: 15px;
   border: none;
   padding: 5px 10px 5px 10px;
 }
 
-.save:hover{
-  background-color: darkgray;
+.save:hover {
+  color: black;
+  background-color: whitesmoke;
   cursor: pointer;
 }
 
@@ -66,4 +68,9 @@ textarea:focus {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.delete-icon:hover {
+  cursor: pointer;
+  color: whitesmoke;
 }
