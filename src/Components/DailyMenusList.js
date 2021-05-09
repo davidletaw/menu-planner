@@ -1,7 +1,7 @@
 import DailyMenu from "./DailyMenu";
 import AddDailyMenu from "./AddDailyMenu";
 
-const DailyMenusList = ({ dailyMenu, handleAddDailyMenu }) => {
+const DailyMenusList = ({ dailyMenu, handleAddDailyMenu, handleDeleteDailyMenu }) => {
     return(
         <div className="daily-menus-list">
             {dailyMenu.map((dailyMenu) => (
@@ -10,9 +10,10 @@ const DailyMenusList = ({ dailyMenu, handleAddDailyMenu }) => {
                     day={dailyMenu.day}
                     meal={dailyMenu.meal}
                     date={dailyMenu.date}
+                    handleDeleteDailyMenu={handleDeleteDailyMenu}
                 />
             ))}
-            <AddDailyMenu handleAddDailyMenu={handleAddDailyMenu}/>
+            <AddDailyMenu handleAddDailyMenu={handleAddDailyMenu} />
         </div>
     );
 };
