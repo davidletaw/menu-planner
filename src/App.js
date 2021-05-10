@@ -3,38 +3,29 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 import Search from "./Components/Search";
 
-
 const App = () => {
     const [dailyMenu, setMenu] = useState([
         {
             id: nanoid(),
-            day: "Monday",
-            meal: "Cereal",
-            date: "05/1/21",
+            meal: "first meal",
         },
         {
             id: nanoid(),
-            day: "Tuesday",
-            meal: "Beef Stew",
-            date: "05/1/21",
+            meal: "second meal",
         },
         {
             id: nanoid(),
-            day: "Wednesday",
-            meal: "This is my third dish",
-            date: "05/1/21",
+            meal: "third meal",
         }
     ]);
 
     const [searchText, setSearchText] = useState('');
 
+
     const addDailyMenu = (text) => {
-        const date = new Date();
         const newDailyMenu = {
             id: nanoid(),
-            day: text,
-            text: text,
-            date: date.toLocaleDateString()
+            meal: text,
         };
         const newMenu = [...dailyMenu, newDailyMenu];
         setMenu(newMenu);
@@ -48,12 +39,14 @@ const App = () => {
   return (
       <div className="container">
           <Search handleSearchNote={setSearchText} />
-        <DailyMenusList
-            dailyMenu={dailyMenu}
+
+          <DailyMenusList
+            dailyMenu={dailyMenu.filter((dailyMenu) =>
+                dailyMenu.meal.toLowerCase().includes(searchText)
+            )}
             handleAddDailyMenu={addDailyMenu}
             handleDeleteDailyMenu={deleteDailyMenu}
-        />
-
+            />
       </div>
   );
 };

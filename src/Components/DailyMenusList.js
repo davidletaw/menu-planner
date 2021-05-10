@@ -7,16 +7,12 @@ const DailyMenusList = ({ dailyMenu, handleAddDailyMenu, handleDeleteDailyMenu }
             {dailyMenu.map((dailyMenu) => (
                 <DailyMenu
                     id={dailyMenu.id}
-                    day={dailyMenu.day}
                     meal={dailyMenu.meal}
-                    date={dailyMenu.date}
-                    handleDeleteDailyMenu={handleDeleteDailyMenu}
-                />
-            ))}
+                    handleDeleteDailyMenu={handleDeleteDailyMenu} />
+                ))}
             <AddDailyMenu handleAddDailyMenu={handleAddDailyMenu} />
         </div>
     );
 };
 
 export default DailyMenusList;
-

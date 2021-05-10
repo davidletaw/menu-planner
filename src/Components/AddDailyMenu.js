@@ -1,19 +1,19 @@
 import { MdDeleteForever } from "react-icons/md";
 import { useState } from "react";
 
-const AddDailyMenu = ({ handleAddDailyMenu }) => {
-    const [menuItem, setMenuItem] = useState('')
+    const AddDailyMenu = ({ handleAddDailyMenu }) => {
+        const [meal, setMeal] = useState('')
 
-    const handleChange = (event) => {
-        setMenuItem(event.target.value);
-    };
+        const handleChange = (event) => {
+            setMeal(event.target.value);
+        };
 
-    const handleSaveClick = () => {
-        if (menuItem.trim().length > 0) {
-            handleAddDailyMenu(menuItem);
-            setMenuItem('');
-        }
-    };
+        const handleSaveClick = () => {
+            if (meal.trim().length > 0) {
+                handleAddDailyMenu(meal);
+                setMeal('');
+            }
+        };
 
     return (
         <div className="daily-menu new">
@@ -21,7 +21,7 @@ const AddDailyMenu = ({ handleAddDailyMenu }) => {
                 rows='8'
                 cols='10'
                 placeholder='Add new daily menu here...'
-                value={menuItem}
+                value={meal}
                 onChange={handleChange}
             />
             <div className='daily-menu-footer'>
