@@ -12,12 +12,27 @@ code {
     monospace;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dark-mode {
+  background-color: #243B53;
+}
+
+.dark-mode h1 {
+  color: #F0F4F8;
+}
+
 .container {
   max-width: 960px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 15px;
   padding-left: 15px;
+  min-height: 100vh;
 }
 
 .daily-menus-list {
@@ -27,13 +42,13 @@ code {
 }
 
 .daily-menu.new {
-  background-color: deepskyblue;
+  background-color: #D9E2EC;
 }
 
 textarea {
   border: none;
   resize: none;
-  background-color: deepskyblue;
+  background-color: #D9E2EC;
 }
 
 textarea:focus {
@@ -41,8 +56,8 @@ textarea:focus {
 }
 
 .save {
-  color: whitesmoke;
-  background-color: darkblue;
+  color: #F0F4F8;
+  background-color: #424242;
   border-radius: 15px;
   border: none;
   padding: 5px 10px 5px 10px;
@@ -50,12 +65,12 @@ textarea:focus {
 
 .save:hover {
   color: black;
-  background-color: whitesmoke;
+  background-color: #EEEEEE;
   cursor: pointer;
 }
 
 .daily-menu {
-  background-color: khaki;
+  background-color: #BCCCDC;
   border-radius: 10px;
   padding: 1rem;
   min-height: 170px;
@@ -72,13 +87,13 @@ textarea:focus {
 
 .delete-icon:hover {
   cursor: pointer;
-  color: whitesmoke;
+  color: #EEEEEE;
 }
 
 .search {
   display: flex;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: #BCCCDC;
   border-radius: 10px;
   padding: 5px;
   margin-bottom: 1.5em;
@@ -86,7 +101,7 @@ textarea:focus {
 
 .search input {
   border: none;
-  background-color: whitesmoke;
+  background-color: #BCCCDC;
 }
 
 .search input:focus {

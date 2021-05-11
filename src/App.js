@@ -1,7 +1,8 @@
 import DailyMenusList from "./Components/DailyMenusList";
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { nanoid } from "nanoid";
 import Search from "./Components/Search";
+import Header from "./Components/Header";
 
 const App = () => {
     const [dailyMenu, setMenu] = useState([
@@ -21,6 +22,24 @@ const App = () => {
 
     const [searchText, setSearchText] = useState('');
 
+    const [darkMode, setDarkMode] = useState(true);
+
+    useEffect(() => {
+        const savedMenus = JSON.parse(
+            localStorage.getItem('react-menu-planner-app-data')
+        );
+
+        if (savedMenus) {
+            setMenu(savedMenus);
+        }
+    },[]) // When this array is empty it will only run on the first load
+
+    useEffect(() => {
+        localStorage.setItem(
+            'react-menu-planner-app-data',
+            JSON.stringify(dailyMenu)
+        );
+    }, [dailyMenu])
 
     const addDailyMenu = (text) => {
         const newDailyMenu = {
@@ -37,16 +56,20 @@ const App = () => {
     };
 
   return (
-      <div className="container">
-          <Search handleSearchNote={setSearchText} />
+      <div className={`${darkMode && 'dark-mode'}`}>
+          <div className="container">
+              <Header handleToggleDarkMode={setDarkMode} />
 
-          <DailyMenusList
-            dailyMenu={dailyMenu.filter((dailyMenu) =>
-                dailyMenu.meal.toLowerCase().includes(searchText)
-            )}
-            handleAddDailyMenu={addDailyMenu}
-            handleDeleteDailyMenu={deleteDailyMenu}
-            />
+              <Search handleSearchNote={setSearchText} />
+
+              <DailyMenusList
+                  dailyMenu={dailyMenu.filter((dailyMenu) =>
+                      dailyMenu.meal.toLowerCase().includes(searchText)
+                  )}
+                  handleAddDailyMenu={addDailyMenu}
+                  handleDeleteDailyMenu={deleteDailyMenu}
+              />
+          </div>
       </div>
   );
 };
